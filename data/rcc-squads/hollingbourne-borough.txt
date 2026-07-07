@@ -1,0 +1,55 @@
+Hollingbourne Borough
+
+
+Trener
+
+Mark Ellison – England – 48
+
+Foretrekker 4-2-3-1
+Strukturert og disiplinert
+Stor vekt på defensiv balanse
+
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+1	George Atkinson	GK	30	England	78
+13	Connor Finnegan	GK	23	Irland	69
+2	Luke Barrett	RB	27	England	75
+14	Sean Donnelly	LB	25	Irland	74
+5	Daniel Whitlock	CB	31	England	78
+4	Ross McDermott	CB	28	Skottland	77
+23	Ethan O'Brien	CB	22	Irland	70
+32	Tyler Brooks	LB/RB	21	Wales	68
+6	Ben Redblack	CM	29	England	78
+8	Liam Forster	CM	26	England	75
+10	Jamie Redfern	AM	25	England	80
+18	Dylan Keane	DM	24	Irland	73
+27	Aaron Mitchell	CM	20	England	68
+34	Ryan Walsh	AM	19	Irland	67
+7	Nathan Crowley	RW	27	England	77
+9	Oliver Hargreaves	ST	28	England	81
+11	Kieran Doyle	LW	24	Irland	76
+29	Mason Fletcher	ST	22	England	71
+Nøkkelspillere
+Oliver Hargreaves
+
+Spiss – 81
+
+Klubbens viktigste målscorer
+Leverer jevnt med mål hver sesong
+Jamie Redfern
+
+Offensiv midtbane – 80
+
+Kreativ leder
+Flest målgivende pasninger i laget
+Daniel Whitlock
+
+Midtstopper – 78
+
+Kaptein
+Organiserer hele forsvaret
+George Atkinson
+
+Keeper – 78
+
+Stabil og erfaren sisteskanse

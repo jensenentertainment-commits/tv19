@@ -1,0 +1,41 @@
+Ashbourne United – tropp
+
+Klubb: Ashbourne United
+Kallenavn: The A’s
+Stadion: Miners' Hollow
+Kapasitet: 12 100
+Sponsor: Garner Electrical
+Draktleverandør: Solaris
+Lagstyrke: 78
+
+Trener
+
+Michael Hargreaves – England – 52
+Rolig, defensivt strukturert, 4-2-3-1.
+
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+1	Daniel Porter	GK	31	England	80
+13	Sean Malloy	GK	23	Irland	70
+2	Jack Beaumont	RB	28	England	78
+3	Liam O’Connor	LB	29	Irland	77
+4	Nathan Crowley	CB	30	England	81
+5	Ryan Gallagher	CB	27	Skottland	79
+14	Oliver Kent	CB	22	England	72
+15	Ethan Walsh	LB/RB	24	Irland	71
+6	Callum Reeves	CM	28	England	82
+8	Ben Foster	CM	25	England	77
+10	Jamie Holloway	AM	26	England	83
+16	Scott McLeod	DM	24	Skottland	74
+17	Aaron Briggs	CM	21	England	70
+18	Dylan Murray	AM	20	Irland	69
+7	Luke Harrington	RW	27	England	80
+9	Connor Whitfield	ST	29	England	84
+11	Mason Burke	LW	24	Irland	78
+19	Tyler Green	ST	22	England	73
+Nøkkelspillere
+
+Connor Whitfield – stjernespiss
+Jamie Holloway – kreativ motor
+Callum Reeves – kaptein og midtbanesjef
+Nathan Crowley – forsvarssjef

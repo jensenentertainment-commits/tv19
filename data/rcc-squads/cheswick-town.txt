@@ -1,0 +1,53 @@
+Cheswick Town
+
+Trener
+
+Richard Hale – England – 49
+
+Foretrekker 4-4-2
+Tradisjonell engelsk fotball
+Fokus på organisering og dødballer
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+1	Jack Bennett	GK	30	England	81
+13	Connor Reid	GK	22	Skottland	70
+2	Luke Pearson	RB	27	England	78
+3	Finlay Ross	LB	26	Skottland	77
+4	Ben Atkinson	CB	31	England	82
+5	Ryan McKay	CB	28	Skottland	80
+14	Oliver Hardy	CB	22	England	73
+15	Sean Doyle	LB/RB	24	Irland	71
+6	Matthew Clarke	CM	29	England	81
+8	Liam Forster	CM	25	England	78
+10	Owen Richardson	AM	27	England	83
+16	Craig Donnelly	DM	24	Skottland	74
+17	Aaron Mitchell	CM	21	England	71
+18	Dylan Price	AM	20	Wales	70
+7	Nathan Cooper	RW	26	England	80
+9	Jordan Bailey	ST	28	England	84
+11	Scott Henderson	LW	25	Skottland	79
+19	Tyler Evans	ST	22	Wales	73
+Nøkkelspillere
+Jordan Bailey
+
+Spiss – 84
+
+Klubbens toppscorer
+Sterk i boksen og farlig på innlegg
+Owen Richardson
+
+Offensiv midtbane – 83
+
+Kreativ playmaker
+Dødballspesialist
+Ben Atkinson
+
+Midtstopper – 82
+
+Kaptein
+Luftsterk og kompromissløs
+Jack Bennett
+
+Keeper – 81
+
+En av ligaens mest stabile målvakter

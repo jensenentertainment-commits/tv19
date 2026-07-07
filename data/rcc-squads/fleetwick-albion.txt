@@ -1,0 +1,29 @@
+Fleetwick Albion
+ 
+Trener
+
+Stephen Rowley – England – 44
+
+Foretrekker 4-2-3-1
+Teknisk og ballbesittende fotball
+Stor tillit til unge spillere
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+22	Oliver Grant	GK	28	England	82
+13	Sean Kavanagh	GK	22	Irland	71
+2	Ryan Whitfield	RB	27	England	79
+14	Liam Doyle	LB	25	Irland	78
+4	Jack Thornton	CB	30	England	82
+5	Scott McBride	CB	28	Skottland	81
+23	Ethan Murray	CB	22	Irland	73
+33	Ben Cartwright	LB/RB	21	England	71
+6	Callum Drake	CM	29	England	81
+8	Nathan Cooper	CM	26	England	79
+10	Jamie Redmond	AM	25	Irland	83
+18	Dylan Fraser	DM	24	Skottland	76
+27	Aaron Briggs	CM	20	England	71
+35	Connor Rees	AM	19	Wales	69
+7	Luke Bennett	RW	27	England	81
+9	Mason Gallagher	ST	28	England	84
+11	Kieran Walsh	LW	24	Irland	80
+29	Tyler Morton	ST	22	England	73

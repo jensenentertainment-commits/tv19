@@ -1,0 +1,37 @@
+Oakham City
+
+Kallenavn: The Royals
+Stadion: Royal Oak Arena
+Kapasitet: 41 200
+Sponsor: Solaris Energy Group
+Draktleverandør: Solaris Elite
+Lagstyrke: 88
+
+Trener
+
+William Kensington – England – 56
+
+Foretrekker 4-3-3
+Ballbesittende fotball
+Har vunnet RCC tidligere
+Ligaens mest respekterte manager
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+1	Alex Shaw	GK	31	England	89
+13	Rhys Morgan	GK	24	Wales	76
+2	George Kramer	RB	28	England	86
+3	Patrick Doyle	LB	27	Irland	85
+4	Thomas Kingsley	CB	31	England	89
+5	Scott McLaren	CB	29	Skottland	87
+22	Owen Fitzsimmons	CB	23	Irland	78
+27	Ethan Coe	LB/RB	22	England	75
+6	Benjamin Hart	CM	30	England	88
+8	Callum Fraser	CM	27	Skottland	86
+10	Oliver Ashcroft	AM	26	England	90
+16	Jerry Newman	DM	25	Irland	81
+31	Nathan Cole	CM	21	England	74
+37	Dylan Murphy	AM	19	Irland	72
+7	Ryan Blackwell	RW	28	England	88
+9	William Jensen	ST	19	Norway	91
+11	Donny O'Brian	LW	26	Irland	87
+19	Tyler Brooks	ST	23	England	79

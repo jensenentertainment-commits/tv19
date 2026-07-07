@@ -1,0 +1,59 @@
+Windmere FC
+
+
+
+
+
+Trener
+
+Martin Callaghan – Irland – 44
+
+Foretrekker 4-5-1
+Defensivt fokus
+Satser på kontringer
+Maksimerer det han har tilgjengelig
+Spillere
+Nr	Navn	Pos	Alder	Land	Rating
+30	Patrick Reilly	GK	29	Irland	70
+13	Ethan Clarke	GK	21	England	62
+2	Dylan Murray	RB	27	Skottland	67
+14	Owen Fitzgerald	LB	25	Irland	66
+5	Jack Harrington	CB	31	England	70
+4	Connor McBride	CB	28	Skottland	69
+22	Liam Walsh	CB	21	Irland	63
+37	Nathan Price	LB/RB	20	Wales	61
+6	Ryan Mercer	CM	28	England	69
+8	Sean Donnelly	CM	25	Irland	67
+10	Callum Fraser	AM	24	Skottland	71
+18	Aaron Doyle	DM	24	Irland	65
+27	Tyler Evans	CM	20	Wales	61
+39	Kieran Hughes	AM	19	Wales	60
+7	Mason Byrne	RW	26	Irland	68
+9	Oliver Crowther	ST	28	England	73
+11	Luke Gallagher	LW	24	Irland	67
+29	Ben Griffiths	ST	21	Wales	63
+Nøkkelspillere
+Oliver Crowther
+
+Spiss – 73
+
+Lagets viktigste angrepsvåpen
+Må score mål dersom klubben skal overleve
+Callum Fraser
+
+Offensiv midtbane – 71
+
+Kreativ motor
+Viktig på dødballer
+Jack Harrington
+
+Midtstopper – 70
+
+Kaptein
+Leder laget gjennom vanskelige perioder
+Patrick Reilly
+
+Keeper – 70
+
+Erfaren sisteskanse
+Holder laget inne i mange kamper
