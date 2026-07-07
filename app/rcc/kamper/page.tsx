@@ -76,47 +76,35 @@ export default async function RccMatchesPage() {
 })}
   </div>
 
-  <div className="grid items-center gap-3 md:grid-cols-[1fr_90px_1fr]">
-    <div className="flex items-center gap-3">
-      {match.home?.crest_url ? (
-        <img
-          src={match.home.crest_url}
-          alt=""
-          className="h-9 w-9 object-contain"
-        />
-      ) : null}
+ <div className="grid items-center gap-3 text-center md:grid-cols-[1fr_90px_1fr] md:text-left">
+  <div className="flex items-center justify-center gap-3 md:justify-start">
+    {match.home?.crest_url ? (
+      <img src={match.home.crest_url} alt="" className="h-9 w-9 object-contain" />
+    ) : null}
 
-      <span className="font-black">
-        {match.home?.name}
-      </span>
-    </div>
-
-    <div className="text-center font-black">
-  {match.played ? (
-    <span className="text-xl text-[#102848]">
-      {match.home_goals}–{match.away_goals}
-    </span>
-  ) : (
-    <span className="text-xs uppercase tracking-[0.18em] text-black/35">
-      VS
-    </span>
-  )}
-</div>
-
-    <div className="flex items-center gap-3 md:justify-end">
-      <span className="font-black">
-        {match.away?.name}
-      </span>
-
-      {match.away?.crest_url ? (
-        <img
-          src={match.away.crest_url}
-          alt=""
-          className="h-9 w-9 object-contain"
-        />
-      ) : null}
-    </div>
+    <span className="font-black">{match.home?.name}</span>
   </div>
+
+  <div className="text-center font-black">
+    {match.played ? (
+      <span className="text-xl text-[#102848]">
+        {match.home_goals}–{match.away_goals}
+      </span>
+    ) : (
+      <span className="text-xs uppercase tracking-[0.18em] text-black/35">
+        VS
+      </span>
+    )}
+  </div>
+
+  <div className="flex items-center justify-center gap-3 md:justify-end">
+    <span className="font-black">{match.away?.name}</span>
+
+    {match.away?.crest_url ? (
+      <img src={match.away.crest_url} alt="" className="h-9 w-9 object-contain" />
+    ) : null}
+  </div>
+</div>
 
  
 </Link>

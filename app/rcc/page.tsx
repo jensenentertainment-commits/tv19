@@ -328,7 +328,7 @@ const topScorerList = Array.from(scorerMap.values())
           </div>
         </div>
 
-        <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E7B21D]/50 bg-white/5 text-xs font-black uppercase tracking-[0.2em] text-[#E7B21D]">
+        <div className="justify-self-center flex h-14 w-14 items-center justify-center rounded-full border border-[#E7B21D]/50 bg-white/5 text-xs font-black uppercase tracking-[0.2em] text-[#E7B21D]">
           VS
         </div>
 

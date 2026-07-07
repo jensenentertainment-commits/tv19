@@ -14,7 +14,7 @@ import AdBox from "./components/ad-box";
 
 function Thumb({ article }: { article: any }) {
   return (
-    <div className="relative h-[95px] overflow-hidden bg-slate-200">
+    <div className="relative aspect-video overflow-hidden bg-slate-200 sm:h-[95px] sm:aspect-auto">
       {article.image_url ? (
         <img
           src={article.image_url}
@@ -133,12 +133,12 @@ const { data: tfbUpdates } = await supabaseAdmin
             </h2>
 
             <Link href={`/a/${mainArticle.slug}`}>
-              <div className="relative h-[420px] bg-slate-200">
+              <div className="relative aspect-video bg-slate-200 md:h-[420px] md:aspect-auto">
                 {mainArticle.image_url ? (
                   <img
                     src={mainArticle.image_url}
                     alt={mainArticle.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-center"
                   />
                 ) : null}
               </div>
@@ -147,7 +147,7 @@ const { data: tfbUpdates } = await supabaseAdmin
                 {mainArticle.kicker || mainArticle.category || "TV 19"}
               </div>
 
-              <h1 className="mt-1 text-3xl md:text-5xl font-black leading-[0.92] tracking-tight">
+              <h1 className="mt-1 text-2xl sm:text-3xl md:text-5xl font-black leading-[0.92] tracking-tight">
                 {mainArticle.title}
               </h1>
 
@@ -185,10 +185,10 @@ const { data: tfbUpdates } = await supabaseAdmin
           <img
             src={article.image_url}
             alt={article.title}
-            className="h-24 w-full object-cover"
+            className="aspect-video w-full object-cover object-center sm:h-24 sm:aspect-auto"
           />
         ) : (
-          <div className="h-24 bg-black/5" />
+          <div className="aspect-video bg-black/5 sm:h-24 sm:aspect-auto" />
         )}
 
         <div>
@@ -284,14 +284,14 @@ const { data: tfbUpdates } = await supabaseAdmin
       </div>
     </div>
 
-    <div className="flex items-center">
-      <Link
-        href="/tips"
-        className="bg-[#183A66] px-6 py-4 text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828]"
-      >
-        Send tips →
-      </Link>
-    </div>
+    <div className="flex">
+  <Link
+    href="/tips"
+    className="w-full bg-[#183A66] px-6 py-4 text-center text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828] md:w-auto"
+  >
+    Send tips →
+  </Link>
+</div>
   </div>
 </aside>
 
@@ -318,7 +318,7 @@ sm:grid-cols-[135px_1fr]
 gap-4
 border-b
 border-black/20
-py-3
+py-4
 hover:bg-black/5
 "
                   >
@@ -352,7 +352,7 @@ hover:bg-black/5
     </Link>
   </div>
 
-  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+  <div className="mt-5 grid gap-4 sm:grid-cols-2">
     {[
       { value: "91%", text: "Flere vil reagere." },
       { value: "84%", text: "Ny vurdering ventes." },

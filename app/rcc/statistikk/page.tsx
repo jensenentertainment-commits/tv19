@@ -155,7 +155,7 @@ export default async function RccStatisticsPage() {
             RCC Statistikk
           </div>
 
-          <h1 className="mt-2 text-5xl font-black tracking-tight">
+          <h1 className="mt-2 text-3xl font-black tracking-tight">
             Statistikksenter
           </h1>
 
