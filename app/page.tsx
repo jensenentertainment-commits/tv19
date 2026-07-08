@@ -330,10 +330,10 @@ const { data: tfbUpdates } = await supabaseAdmin
       </div>
     </div>
 
-    <div className="flex">
+  <div>
   <Link
     href="/tips"
-    className="w-full bg-[#183A66] px-6 py-4 text-center text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828] md:w-auto"
+    className="block w-full bg-[#183A66] px-6 py-4 text-center text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828] md:inline-block md:w-auto"
   >
     Send tips →
   </Link>
