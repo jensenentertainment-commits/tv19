@@ -70,39 +70,89 @@ const { data: articles } = await supabaseAdmin
           </div>
         ) : (
           <div className="grid gap-6 md:grid-cols-3">
-            {articles.map((article) => (
-              <Link
-                key={article.id}
-                href={`/a/${article.slug}`}
-                className="group block overflow-hidden bg-white no-underline transition-transform hover:-translate-y-1"
-              >
-                {article.image_url ? (
-                  <img
-                    src={article.image_url}
-                    alt={article.title}
-                    className="h-56 w-full object-cover"
-                  />
-                ) : (
-                  <div className="h-56 bg-slate-200" />
-                )}
+          {articles.map((article) => {
+  if (article.display_type === "text") {
+    return (
+      <Link
+        key={article.id}
+        href={`/a/${article.slug}`}
+        className="group block bg-[#183A66] p-5 text-white no-underline transition-transform hover:-translate-y-1"
+      >
+        <div className="mb-3 text-xs font-black uppercase tracking-[0.12em] text-red-300">
+          {article.kicker || article.category}
+        </div>
 
-                <div className="p-4">
-                  <div className="mb-2 text-xs font-black uppercase tracking-[0.12em] text-[rgb(var(--accent))]">
-                    {article.category}
-                  </div>
+        <h2 className="text-2xl font-black leading-tight">
+          {article.title}
+        </h2>
 
-                  <h2 className="text-xl font-black leading-tight group-hover:text-[rgb(var(--brand))]">
-                    {article.title}
-                  </h2>
+        {article.excerpt ? (
+          <p className="mt-4 text-sm font-bold text-white/70">
+            {article.excerpt}
+          </p>
+        ) : null}
 
-                  {article.excerpt ? (
-                    <p className="mt-3 text-sm font-bold text-black/60">
-                      {article.excerpt}
-                    </p>
-                  ) : null}
-                </div>
-              </Link>
-            ))}
+        <div className="mt-5 text-sm font-black text-white/70 group-hover:text-white">
+          Les saken →
+        </div>
+      </Link>
+    );
+  }
+
+  if (article.display_type === "breaking") {
+    return (
+      <Link
+        key={article.id}
+        href={`/a/${article.slug}`}
+        className="group block bg-[#C62828] p-5 text-white no-underline transition-transform hover:-translate-y-1"
+      >
+        <div className="mb-3 text-xs font-black uppercase tracking-[0.18em] text-white/75">
+          Akkurat nå
+        </div>
+
+        <h2 className="text-2xl font-black leading-tight">
+          {article.title}
+        </h2>
+
+        <div className="mt-5 text-sm font-black text-white/75 group-hover:text-white">
+          Følg saken →
+        </div>
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      key={article.id}
+      href={`/a/${article.slug}`}
+      className="group block overflow-hidden bg-white no-underline transition-transform hover:-translate-y-1"
+    >
+      {article.image_url ? (
+        <img
+          src={article.image_url}
+          alt={article.title}
+          className="aspect-video w-full object-cover object-center md:h-56 md:aspect-auto"
+        />
+      ) : null}
+
+      <div className="p-4">
+        <div className="mb-2 text-xs font-black uppercase tracking-[0.12em] text-[rgb(var(--accent))]">
+          {article.kicker || article.category}
+        </div>
+
+        <h2 className="text-xl font-black leading-tight group-hover:text-[rgb(var(--brand))]">
+          {article.title}
+        </h2>
+
+        {article.excerpt ? (
+          <p className="mt-3 text-sm font-bold text-black/60">
+            {article.excerpt}
+          </p>
+        ) : null}
+      </div>
+    </Link>
+  );
+})}
           </div>
         )}
       </div>

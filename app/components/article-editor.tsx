@@ -22,6 +22,7 @@ type ArticleEditorProps = {
     published_at?: string | null;
     tags?: string[] | null;
     location?: string | null;
+    display_type?: string | null;
   };
 };
 
@@ -183,6 +184,8 @@ function insertBlock(startTag: string, endTag: string) {
   </p>
 </div>
 
+
+
       <div>
         <label className="mb-1 block text-sm font-black">Forfatter</label>
         <select
@@ -245,6 +248,26 @@ function insertBlock(startTag: string, endTag: string) {
           placeholder="Kommunale planleggere i Dublin bekrefter at spørsmålet nå er til vurdering..."
         />
       </div>
+
+      <div>
+  <label className="mb-1 block text-sm font-black">
+    Forsidevisning
+  </label>
+
+  <select
+    name="display_type"
+    defaultValue={article?.display_type || "standard"}
+    className="w-full border border-black/20 px-3 py-2 font-bold outline-none focus:border-black"
+  >
+    <option value="standard">Standard med bilde</option>
+    <option value="text">Tekstkort uten bilde</option>
+    <option value="breaking">Breaking-boks</option>
+  </select>
+
+  <p className="mt-1 text-xs font-bold text-black/45">
+    Bruk tekstkort når saken skal vises uten bilde på forsiden.
+  </p>
+</div>
 
       <div>
         <label className="mb-1 block text-sm font-black">Hovedbilde</label>

@@ -174,8 +174,53 @@ const { data: tfbUpdates } = await supabaseAdmin
     </Link>
   </div>
 
-  <div className="grid gap-4 md:grid-cols-2">
-    {latestArticles.map((article) => (
+<div className="grid gap-4 md:grid-cols-2">
+  {latestArticles.map((article) => {
+    if (article.display_type === "text") {
+      return (
+        <Link
+          key={article.id}
+          href={`/a/${article.slug}`}
+          className="group block border-b border-black/10 bg-[#183A66] p-5 text-white no-underline"
+        >
+          <div className="mb-2 text-xs font-black uppercase tracking-[0.12em] text-red-300">
+            {article.kicker || article.category || "TV19"}
+          </div>
+
+          <h3 className="text-2xl font-black leading-tight">
+            {article.title}
+          </h3>
+
+          <div className="mt-4 text-sm font-black text-white/70 group-hover:text-white">
+            Les saken →
+          </div>
+        </Link>
+      );
+    }
+
+    if (article.display_type === "breaking") {
+      return (
+        <Link
+          key={article.id}
+          href={`/a/${article.slug}`}
+          className="group block border-b border-black/10 bg-[#C62828] p-5 text-white no-underline"
+        >
+          <div className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-white/75">
+            Akkurat nå
+          </div>
+
+          <h3 className="text-2xl font-black leading-tight">
+            {article.title}
+          </h3>
+
+          <div className="mt-4 text-sm font-black text-white/75 group-hover:text-white">
+            Følg saken →
+          </div>
+        </Link>
+      );
+    }
+
+    return (
       <Link
         key={article.id}
         href={`/a/${article.slug}`}
@@ -193,7 +238,7 @@ const { data: tfbUpdates } = await supabaseAdmin
 
         <div>
           <div className="mb-1 text-xs font-black uppercase tracking-[0.12em] text-[rgb(var(--accent))]">
-            {article.category || "TV19"}
+            {article.kicker || article.category || "TV19"}
           </div>
 
           <h3 className="text-lg font-black leading-tight group-hover:text-[rgb(var(--brand))]">
@@ -201,8 +246,9 @@ const { data: tfbUpdates } = await supabaseAdmin
           </h3>
         </div>
       </Link>
-    ))}
-  </div>
+    );
+  })}
+</div>
 </section>
 
 <section className="mt-10 bg-[#102848] text-white">

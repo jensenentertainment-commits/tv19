@@ -153,15 +153,13 @@ if (
 
       
 
-        {article.image_url ? (
-          <img
-            src={article.image_url}
-            alt={article.title}
-            className="my-6 max-h-[520px] w-full object-cover"
-          />
-        ) : (
-          <div className="my-6 h-[240px] bg-slate-200 md:h-[360px]" />
-        )}
+      {article.image_url ? (
+  <img
+    src={article.image_url}
+    alt={article.title}
+    className="my-6 aspect-video w-full object-cover object-center md:max-h-[520px]"
+  />
+) : null}
 
         {article.image_caption ? (
   <p className="mt-2 text-sm font-bold leading-relaxed text-black/45">
@@ -172,7 +170,7 @@ if (
   
 
      <div className="my-6 border-y border-black/10 py-5">
-  <div className="flex items-center justify-between gap-6">
+  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
 
     <div className="flex items-center gap-4">
 
@@ -280,7 +278,7 @@ if (
               <img
                 src={related.image_url}
                 alt={related.title}
-                className="mb-3 h-40 w-full object-cover"
+               className="mb-3 aspect-video w-full object-cover object-center md:h-40 md:aspect-auto"
               />
             ) : null}
 

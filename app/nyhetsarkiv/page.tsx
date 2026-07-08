@@ -41,43 +41,47 @@ const { data: articles } = await supabaseAdmin
 
  <div className="space-y-6">
   {articles?.map((article) => (
-    <article
-      key={article.id}
-      className="border-b border-black/10 pb-6"
+  <article key={article.id} className="border-b border-black/10 pb-6">
+    <Link
+      href={`/a/${article.slug}`}
+      className="grid gap-4 no-underline sm:grid-cols-[180px_1fr]"
     >
-      <Link
-        href={`/a/${article.slug}`}
-        className="grid gap-4 sm:grid-cols-[180px_1fr]"
-      >
-        {article.image_url ? (
-          <img
-            src={article.image_url}
-            alt={article.title}
-            className="h-32 w-full object-cover"
-          />
-        ) : (
-          <div className="h-32 bg-black/5" />
-        )}
-
-        <div>
-          <h2 className="text-2xl font-black leading-tight hover:text-[rgb(var(--accent))]">
-            {article.title}
-          </h2>
-
-          {article.excerpt ? (
-            <p className="mt-2 text-black/70">
-              {article.excerpt}
-            </p>
-          ) : null}
-
-          <div className="mt-3 text-sm font-bold text-black/45">
-        {article.category} · {formatArchiveDate(article.published_at)}
-          </div>
+      {article.display_type === "text" ? (
+        <div className="flex aspect-video items-center justify-center bg-[#183A66] p-4 text-center text-sm font-black uppercase tracking-[0.16em] text-white sm:h-32 sm:aspect-auto">
+          Tekstkort
         </div>
-      </Link>
-    </article>
- 
-        ))}
+      ) : article.display_type === "breaking" ? (
+        <div className="flex aspect-video items-center justify-center bg-[#C62828] p-4 text-center text-sm font-black uppercase tracking-[0.16em] text-white sm:h-32 sm:aspect-auto">
+          Akkurat nå
+        </div>
+      ) : article.image_url ? (
+        <img
+          src={article.image_url}
+          alt={article.title}
+          className="aspect-video w-full object-cover object-center sm:h-32 sm:aspect-auto"
+        />
+      ) : null}
+
+      <div>
+        <div className="mb-1 text-xs font-black uppercase tracking-[0.12em] text-[rgb(var(--accent))]">
+          {article.kicker || article.category || "TV19"}
+        </div>
+
+        <h2 className="text-2xl font-black leading-tight hover:text-[rgb(var(--accent))]">
+          {article.title}
+        </h2>
+
+        {article.excerpt ? (
+          <p className="mt-2 text-black/70">{article.excerpt}</p>
+        ) : null}
+
+        <div className="mt-3 text-sm font-bold text-black/45">
+          {article.category} · {formatArchiveDate(article.published_at)}
+        </div>
+      </div>
+    </Link>
+  </article>
+))}
       </div>
     </main>
   );

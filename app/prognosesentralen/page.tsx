@@ -15,7 +15,7 @@ const sections = [
     items: [
       { value: "93%", text: "Noen kommer til å vinne RCC." },
       { value: "68%", text: "Tabellen vil endre seg." },
-      { value: "41%", text: "Morgan Fairchild kommenterer utviklingen." },
+     { value: "41%", text: "James Ellington kommenterer utviklingen." },
     ],
   },
   {
@@ -46,7 +46,7 @@ export default function PrognosesentralenPage() {
               TV19 Analyse
             </div>
 
-            <h1 className="mt-2 text-5xl font-black tracking-tight md:text-7xl">
+            <h1 className="mt-2 break-words text-4xl font-black leading-none tracking-tight sm:text-5xl md:text-7xl">
               Prognosesentralen
             </h1>
 
@@ -65,7 +65,7 @@ export default function PrognosesentralenPage() {
 
                 <div className="divide-y divide-black/10">
                   {section.items.map((item) => (
-                    <div key={item.text} className="grid grid-cols-[92px_1fr] gap-4 p-4">
+                    <div key={item.text} className="grid gap-2 p-4 sm:grid-cols-[92px_1fr] sm:gap-4">
                       <div className="text-4xl font-black text-[#C62828]">
                         {item.value}
                       </div>
