@@ -3,7 +3,7 @@ import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import TfbTicker from "@/app/components/tfb-ticker";
 import TvWeather from "./components/tv-weather";
-
+import BreakingArticleBox from "@/app/components/breaking-article-box";
 import AdBox from "./components/ad-box";
 
 
@@ -97,6 +97,10 @@ const { data: tfbUpdates } = await supabaseAdmin
   .order("published_at", { ascending: false })
   .limit(5);
 
+  const breakingArticle = published.find(
+  (article) => article.display_type === "breaking"
+);
+
   
  const { data: nextRccMatch } = await supabaseAdmin
   .from("rcc_matches")
@@ -124,11 +128,11 @@ const { data: tfbUpdates } = await supabaseAdmin
 
       <div className="mx-auto max-w-[1180px] px-4 py-4">
       
-      <TfbTicker updates={tfbUpdates || []} />
+      <BreakingArticleBox article={breakingArticle} />
 
         {mainArticle ? (
           <section className="bg-white p-4">
-            <h2 className="mb-3 border-b-4 border-black pb-2 text-sm font-black uppercase tracking-[0.18em] text-black/50">
+            <h2 className="mb-6 border-b-4 border-black pb-2 text-sm font-black uppercase tracking-[0.18em] text-black/50">
               Hovedsak
             </h2>
 

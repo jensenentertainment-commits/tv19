@@ -39,6 +39,7 @@ const imageCaption3 = String(formData.get("image_caption_3") || "").trim();
   const excerpt = String(formData.get("excerpt") || "").trim();
   const body = String(formData.get("body") || "").trim();
   const status = String(formData.get("status") || "draft");
+  const displayType = String(formData.get("display_type") || "standard");
   const featured = formData.get("featured") === "on";
   const currentImageUrl = String(formData.get("currentImageUrl") || "");
 const image = formData.get("image") as File | null;
@@ -107,6 +108,7 @@ const tags = tagsRaw
       body,
       status,
       featured,
+      display_type: displayType,
       image_url,
       image_url_2: imageUrl2,
 image_url_3: imageUrl3,

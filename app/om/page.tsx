@@ -36,6 +36,10 @@ export default function OmPage() {
             Ekspertgruppen og andre kilder TV19 ikke nødvendigvis har snakket
             med.
           </p>
+
+           <p>
+          TV19 er en uavhengig norsk satirisk nyhetsportal. Navnet TV19 brukes også av andre virksomheter internasjonalt. Eventuelle likheter i navn er ikke uttrykk for samarbeid, tilknytning eller annen utvikling.
+          </p>
         </div>
 
         <section className="mt-10 border-t-4 border-black pt-6">

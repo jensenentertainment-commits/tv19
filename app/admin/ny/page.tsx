@@ -32,6 +32,7 @@ const imageCaption3 = String(formData.get("image_caption_3") || "").trim();
   const excerpt = String(formData.get("excerpt") || "").trim();
   const body = String(formData.get("body") || "").trim();
   const status = String(formData.get("status") || "draft");
+  const displayType = String(formData.get("display_type") || "standard");
   const featured = formData.get("featured") === "on";
   const plus_article = formData.get("plus_article") === "on";
   const image2 = formData.get("image2") as File;
@@ -97,6 +98,7 @@ if (image && image.size > 0) {
     excerpt,
     body,
     status,
+    display_type: displayType,
     featured,
     author,
     image_url,
