@@ -59,12 +59,7 @@ export default async function Navbar() {
               </>
             )}
 
-            <Link
-              href="/pluss"
-              className="border border-white/20 bg-black px-4 py-2 text-sm font-black text-white no-underline transition-all duration-200 hover:bg-[#C62828]"
-            >
-              TV 19+
-            </Link>
+            
           </div>
         </div>
       </div>

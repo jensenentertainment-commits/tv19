@@ -5,6 +5,7 @@ import TfbTicker from "@/app/components/tfb-ticker";
 import TvWeather from "./components/tv-weather";
 import BreakingArticleBox from "@/app/components/breaking-article-box";
 import AdBox from "./components/ad-box";
+import CultureCalendar from "./components/culture-calendar";
 
 
 
@@ -388,190 +389,70 @@ hover:bg-black/5
 
 
 
-           <section className="bg-white p-4">
-  <div className="flex items-end justify-between gap-4">
-    <h2 className="text-3xl font-black md:text-4xl">
-      Prognose<span className="text-[rgb(var(--brand))]">sentralen</span>
-    </h2>
+            <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
+  <section className="bg-white p-4">
+    <div className="flex items-end justify-between gap-4">
+      <h2 className="text-3xl font-black md:text-4xl">
+        Prognose<span className="text-[rgb(var(--brand))]">sentralen</span>
+      </h2>
 
-    <Link
-      href="/prognosesentralen"
-      className="text-sm font-black uppercase tracking-[0.14em] text-[rgb(var(--brand))]"
-    >
-      Se alle →
-    </Link>
-  </div>
-
-  <div className="mt-5 grid gap-4 sm:grid-cols-2">
-    {[
-      { value: "91%", text: "Flere vil reagere." },
-      { value: "84%", text: "Ny vurdering ventes." },
-      { value: "76%", text: "Situasjonen utvikler seg." },
-      { value: "63%", text: "Oppdateringer omtales som nært forestående." },
-    ].map((item) => (
       <Link
-  key={item.text}
-  href="/prognosesentralen"
-  className="
-    group
-    block
-    border border-black/10
-    bg-[#f7f4f4]
-    p-4
-    transition-all
-    duration-200
-    hover:-translate-y-1
-    hover:border-[rgb(var(--brand))]
-    hover:shadow-lg
-  "
->
-  
-      <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#C62828]">
-  Prognose
-</div>
-
-<div className="mt-2 text-4xl font-black text-[rgb(var(--brand))] transition-colors group-hover:text-[#C62828]">
-  {item.value}
-</div>
-
-<div className="mt-2 text-lg font-black leading-tight">
-  {item.text}
-</div>
-
-<div className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-black/35 transition-colors group-hover:text-[rgb(var(--brand))]">
-  Se prognose →
-</div>
-     </Link>
-      
-    ))}
-  </div>
-</section>
-
-      
-<section className="bg-white p-5">
-  <div className="border-b-4 border-[#102848] pb-2">
-    <div className="text-xs font-black uppercase tracking-[0.22em] text-[#C62828]">
-      TV19 Sport
+        href="/prognosesentralen"
+        className="text-sm font-black uppercase tracking-[0.14em] text-[rgb(var(--brand))]"
+      >
+        Se alle →
+      </Link>
     </div>
 
-    <h2 className="mt-1 text-2xl font-black">Siste fra RCC</h2>
-  </div>
-
-  {rccArticles.length > 0 ? (
-    <div className="mt-4 divide-y divide-black/10">
-      {rccArticles.map((article) => (
+    <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      {[
+        { value: "91%", text: "Flere vil reagere." },
+        { value: "84%", text: "Ny vurdering ventes." },
+        { value: "76%", text: "Situasjonen utvikler seg." },
+        { value: "63%", text: "Oppdateringer omtales som nært forestående." },
+      ].map((item) => (
         <Link
-          key={article.id}
-          href={`/a/${article.slug}`}
-          className="block py-4 no-underline group"
+          key={item.text}
+          href="/prognosesentralen"
+          className="group block border border-black/10 bg-[#f7f4f4] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[rgb(var(--brand))] hover:shadow-lg"
         >
           <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#C62828]">
-            RCC
+            Prognose
           </div>
 
-          <h3 className="mt-1 text-base font-black leading-tight group-hover:text-[#C62828]">
-            {article.title}
-          </h3>
+          <div className="mt-2 text-4xl font-black text-[rgb(var(--brand))] transition-colors group-hover:text-[#C62828]">
+            {item.value}
+          </div>
 
-          {article.ingress && (
-  <p className="mt-2 line-clamp-2 text-sm font-bold text-black/55">
-    {article.ingress}
-  </p>
-)}
+          <div className="mt-2 text-lg font-black leading-tight">
+            {item.text}
+          </div>
+
+          <div className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-black/35 transition-colors group-hover:text-[rgb(var(--brand))]">
+            Se prognose →
+          </div>
+          
         </Link>
       ))}
+      <div className="mt-5 border-t border-black/10 pt-4 text-xs font-black uppercase tracking-[0.16em] text-black/40">
+  Neste vurdering ventes innen rimelig tid.
+</div>
     </div>
-  ) : (
-    <div className="mt-5 text-center">
-      <div className="text-sm font-black uppercase tracking-[0.18em] text-black/40">
-        RCC-redaksjonen forbereder seg
-      </div>
-
-      <div className="mt-2 text-xl font-black">
-        Flere saker ventes før seriestart
-      </div>
-    </div>
-  )}
-
-  <Link
-    href="/rcc"
-    className="mt-4 block text-center text-sm font-black uppercase tracking-[0.16em] text-[#C62828] no-underline"
-  >
-    RCC Portal →
-  </Link>
-
-</section>
-
- 
     
+  </section>
 
-          </div>
+  <aside className="flex flex-col gap-8">
+    <TvWeather />
 
-          <aside className="w-full lg:w-[320px] lg:shrink-0 space-y-8">
-            <section className="bg-white p-4">
-              
-              <h2 className="border-b-4 border-black pb-2 text-2xl font-black">
-                 Mest{" "}
-  <span className="text-[rgb(var(--brand))]">lest</span>
-</h2>
+    <AdBox ads={ads ?? []} className="flex-1 min-h-[220px]" />
+  </aside>
+</div>
 
-             <ol className="mt-5 divide-y divide-black/10">
-  {otherArticles.slice(0, 5).map((article, index) => (
-    <li key={article.id}>
-      <Link
-        href={`/a/${article.slug}`}
-        className="group flex gap-4 py-4 no-underline first:pt-0"
-      >
-        <span className="w-8 shrink-0 pt-0.5 text-sm font-black leading-none tracking-[0.08em] text-[rgb(var(--brand))]">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-
-        <span className="text-base font-black leading-tight transition-colors group-hover:text-[rgb(var(--brand))]">
-          {article.title}
-        </span>
-      </Link>
-    </li>
-  ))}
-</ol>
-            </section>
-
-       <section className="bg-white">
-  <div className="bg-[rgb(var(--brand))] px-4 py-3 text-white">
-    <div className="flex items-center justify-between gap-4">
-      <div>
-        <h3 className="text-xl font-black leading-none">
-          TV19<span className="text-red-400">+</span>
-        </h3>
-        <p className="mt-1 text-[10px] font-black uppercase tracking-[0.18em] text-white/65">
-          Kun for abonnenter
-        </p>
+<div className="mt-12">
+  <CultureCalendar />
+</div>
+</div>
       </div>
-
-      <span className="text-xs font-black uppercase text-white/75">
-        Nesten aktivt
-      </span>
-    </div>
-  </div>
-
-  <div className="space-y-3 p-4">
-    {plusArticles.map((article) => (
-      <Link
-        key={article.id}
-        href={`/a/${article.slug}`}
-        className="block border-l-4 border-[rgb(var(--brand))] pl-3 text-sm font-black leading-tight hover:text-[rgb(var(--accent))]"
-      >
-        🔒 {article.title}
-      </Link>
-    ))}
-  </div>
-</section>
-          
-             <TvWeather />
-
-             <AdBox ads={ads ?? []} className="h-[445px]" />
-
-           </aside>
-        </div>
       </div>
     </main>
   );
