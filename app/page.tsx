@@ -6,6 +6,7 @@ import TvWeather from "./components/tv-weather";
 import BreakingArticleBox from "@/app/components/breaking-article-box";
 import AdBox from "./components/ad-box";
 import CultureCalendar from "./components/culture-calendar";
+import Tv19Poll from "./components/tv19-poll";
 
 
 
@@ -87,7 +88,7 @@ const latestArticles = otherArticles.slice(0, 8);
   const shuffled = [...otherArticles]
   .sort(() => Math.random() - 0.5);
 
-const workingArticles = shuffled.slice(0, 3);
+const workingArticles = shuffled.slice(0, 4);
   const plusArticles = published.filter((a) => a.plus_article).slice(0, 3);
  
 
@@ -352,108 +353,104 @@ const { data: tfbUpdates } = await supabaseAdmin
         <div className="mt-10 flex flex-col gap-8 lg:flex-row">
   <div className="min-w-0 flex-1 space-y-8">
             <section className="bg-white p-4">
-              <h2 className="text-3xl md:text-4xl font-black">
-  Det jobbes med{" "}
-  <span className="text-[rgb(var(--brand))]">saken</span>
-</h2>
+    <h2 className="text-3xl font-black md:text-4xl">
+      Det jobbes med{" "}
+      <span className="text-[rgb(var(--brand))]">saken</span>
+    </h2>
 
-              <div className="mt-4 space-y-0">
-                {workingArticles.map((article) => (
-                  <Link
-                    key={article.id}
-                    href={`/a/${article.slug}`}
-                    className="
-grid
-grid-cols-1
-sm:grid-cols-[135px_1fr]
-gap-4
-border-b
-border-black/20
-py-4
-hover:bg-black/5
-"
-                  >
-                    <Thumb article={article} />
-                    <div>
-                      <div className="text-xs font-black uppercase text-[rgb(var(--accent))]">
-                        {article.kicker || article.category || "TV 19"}
-                      </div>
-                      <h3 className="mt-1 text-xl font-black leading-tight">
-                        {article.title}
-                      </h3>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </section>
-
-
-
-            <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
-  <section className="bg-white p-4">
-    <div className="flex items-end justify-between gap-4">
-      <h2 className="text-3xl font-black md:text-4xl">
-        Prognose<span className="text-[rgb(var(--brand))]">sentralen</span>
-      </h2>
-
-      <Link
-        href="/prognosesentralen"
-        className="text-sm font-black uppercase tracking-[0.14em] text-[rgb(var(--brand))]"
-      >
-        Se alle →
-      </Link>
-    </div>
-
-    <div className="mt-5 grid gap-4 sm:grid-cols-2">
-      {[
-        { value: "91%", text: "Flere vil reagere." },
-        { value: "84%", text: "Ny vurdering ventes." },
-        { value: "76%", text: "Situasjonen utvikler seg." },
-        { value: "63%", text: "Oppdateringer omtales som nært forestående." },
-      ].map((item) => (
+    <div className="mt-4">
+      {workingArticles.map((article) => (
         <Link
-          key={item.text}
-          href="/prognosesentralen"
-          className="group block border border-black/10 bg-[#f7f4f4] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[rgb(var(--brand))] hover:shadow-lg"
+          key={article.id}
+          href={`/a/${article.slug}`}
+          className="grid grid-cols-1 gap-4 border-b border-black/20 py-4 hover:bg-black/5 sm:grid-cols-[135px_1fr]"
         >
-          <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#C62828]">
-            Prognose
-          </div>
+          <Thumb article={article} />
 
-          <div className="mt-2 text-4xl font-black text-[rgb(var(--brand))] transition-colors group-hover:text-[#C62828]">
-            {item.value}
-          </div>
+          <div>
+            <div className="text-xs font-black uppercase text-[rgb(var(--accent))]">
+              {article.kicker || article.category || "TV19"}
+            </div>
 
-          <div className="mt-2 text-lg font-black leading-tight">
-            {item.text}
+            <h3 className="mt-1 text-xl font-black leading-tight">
+              {article.title}
+            </h3>
           </div>
-
-          <div className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-black/35 transition-colors group-hover:text-[rgb(var(--brand))]">
-            Se prognose →
-          </div>
-          
         </Link>
       ))}
-      <div className="mt-5 border-t border-black/10 pt-4 text-xs font-black uppercase tracking-[0.16em] text-black/40">
-  Neste vurdering ventes innen rimelig tid.
-</div>
     </div>
-    
   </section>
+
+  {/* Prognoser, undersøkelse, vær og annonse */}
+<div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+  <div className="min-w-0 space-y-8">
+    <section className="bg-white p-4">
+      <div className="flex items-end justify-between gap-4">
+        <h2 className="text-3xl font-black md:text-4xl">
+          Prognose
+          <span className="text-[rgb(var(--brand))]">sentralen</span>
+        </h2>
+
+        <Link
+          href="/prognosesentralen"
+          className="text-sm font-black uppercase tracking-[0.14em] text-[rgb(var(--brand))]"
+        >
+          Se alle →
+        </Link>
+      </div>
+
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+        {[
+          { value: "91%", text: "Flere vil reagere." },
+          { value: "84%", text: "Ny vurdering ventes." },
+          { value: "76%", text: "Situasjonen utvikler seg." },
+          {
+            value: "63%",
+            text: "Oppdateringer omtales som nært forestående.",
+          },
+        ].map((item) => (
+          <Link
+            key={item.text}
+            href="/prognosesentralen"
+            className="group block border border-black/10 bg-[#f7f4f4] p-4 transition-all duration-200 hover:-translate-y-1 hover:border-[rgb(var(--brand))] hover:shadow-lg"
+          >
+            <div className="text-[10px] font-black uppercase tracking-[0.18em] text-[#C62828]">
+              Prognose
+            </div>
+
+            <div className="mt-2 text-4xl font-black text-[rgb(var(--brand))] transition-colors group-hover:text-[#C62828]">
+              {item.value}
+            </div>
+
+            <div className="mt-2 text-lg font-black leading-tight">
+              {item.text}
+            </div>
+
+            <div className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-black/35 transition-colors group-hover:text-[rgb(var(--brand))]">
+              Se prognose →
+            </div>
+          </Link>
+        ))}
+      </div>
+    </section>
+
+    <AdBox ads={ads ?? []} className="h-[245px]" />
+  </div>
 
   <aside className="flex flex-col gap-8">
     <TvWeather />
 
-    <AdBox ads={ads ?? []} className="flex-1 min-h-[220px]" />
+    <Tv19Poll />
   </aside>
 </div>
 
-<div className="mt-12">
-  <CultureCalendar />
-</div>
+  {/* Kulturkalenderen i full bredde */}
+  <div className="pt-4">
+    <CultureCalendar />
+  </div>
 </div>
       </div>
-      </div>
+        </div>
     </main>
   );
 }
