@@ -66,9 +66,19 @@ const { data: articles } = await supabaseAdmin
   .eq("active", true)
   .order("created_at", { ascending: false });
 
-  const published = articles ?? [];
-  const mainArticle = published.find((a) => a.featured) ?? published[0];
-  const otherArticles = published.filter((a) => a.id !== mainArticle?.id);
+const published = articles ?? [];
+
+const mainArticle =
+  published.find((article) => article.featured) ?? published[0];
+
+const otherArticles = published.filter(
+  (article) => article.id !== mainArticle?.id
+);
+
+const breakingArticle = published.find(
+  (article) => article.display_type === "breaking"
+);
+
 const rccArticles = published
   .filter((article) => {
     const tags = article.tags;
@@ -84,11 +94,17 @@ const rccArticles = published
     return false;
   })
   .slice(0, 4);
+
 const latestArticles = otherArticles.slice(0, 8);
-  const shuffled = [...otherArticles]
+
+const shuffled = [...otherArticles]
+  .filter((article) => article.id !== breakingArticle?.id)
   .sort(() => Math.random() - 0.5);
 
-const workingArticles = shuffled.slice(0, 4);
+const workingArticles = shuffled.slice(0, 3);
+
+
+
   const plusArticles = published.filter((a) => a.plus_article).slice(0, 3);
  
 
@@ -99,9 +115,7 @@ const { data: tfbUpdates } = await supabaseAdmin
   .order("published_at", { ascending: false })
   .limit(5);
 
-  const breakingArticle = published.find(
-  (article) => article.display_type === "breaking"
-);
+ 
 
   
  const { data: nextRccMatch } = await supabaseAdmin
