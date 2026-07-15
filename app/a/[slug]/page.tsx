@@ -85,7 +85,7 @@ export default async function ArticlePage({ params }: Props) {
     .from("articles")
     .select("*")
     .eq("slug", slug)
-    .eq("status", "published")
+    
     .single();
 
   if (error || !article) {
@@ -94,12 +94,14 @@ export default async function ArticlePage({ params }: Props) {
 
   const now = new Date().toISOString();
 
-if (
-  article.status === "draft" ||
-  (article.status === "scheduled" &&
-    article.published_at &&
-    article.published_at > now)
-) {
+const isPublished = article.status === "published";
+
+const isScheduledAndReady =
+  article.status === "scheduled" &&
+  article.published_at &&
+  article.published_at <= now;
+
+if (!isPublished && !isScheduledAndReady) {
   notFound();
 }
 
