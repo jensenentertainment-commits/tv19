@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/auth/require-admin";
-
+import AdEditor from "@/app/components/ad-editor";
 
 type Props = {
   params: Promise<{
@@ -79,127 +79,26 @@ export default async function EditAdPage({ params }: Props) {
         </div>
 
         <form action={updateAd} className="space-y-5">
-          <input type="hidden" name="id" value={ad.id} />
+  <input type="hidden" name="id" value={ad.id} />
 
-          <div>
-            <label className="mb-1 block text-sm font-black">Tittel</label>
-            <input
-              name="title"
-              required
-              defaultValue={ad.title}
-              className="w-full border border-black/20 px-3 py-2 text-lg font-bold outline-none focus:border-black"
-            />
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-  <div>
-    <label className="mb-1 block text-sm font-black">Etikett</label>
-    <input
-      name="label"
-      defaultValue={ad.label || ""}
-      className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-      placeholder="TV19 PARTNER"
-    />
+  <AdEditor ad={ad} />
+
+  <div className="flex gap-3">
+    <button
+      type="submit"
+      className="bg-[rgb(var(--accent))] px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-white hover:bg-black"
+    >
+      Lagre endringer
+    </button>
+
+    <a
+      href="/admin/annonser"
+      className="px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-black/60 hover:text-black"
+    >
+      Avbryt
+    </a>
   </div>
-
-  <div>
-    <label className="mb-1 block text-sm font-black">Sponsor</label>
-    <input
-      name="sponsor"
-      defaultValue={ad.sponsor || ""}
-      className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-      placeholder="Blackwood Breweries"
-    />
-  </div>
-</div>
-
-<div>
-  <label className="mb-1 block text-sm font-black">Logo / bilde URL</label>
-  <input
-    name="image_url"
-    defaultValue={ad.image_url || ""}
-    className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-    placeholder="/ads/blackwood.png"
-  />
-</div>
-
-          <div>
-            <label className="mb-1 block text-sm font-black">Tekst</label>
-            <textarea
-              name="text"
-              required
-              rows={3}
-              defaultValue={ad.text}
-              className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-            />
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-sm font-black">CTA</label>
-              <input
-                name="cta"
-                defaultValue={ad.cta || ""}
-                className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block text-sm font-black">Lenke</label>
-              <input
-                name="href"
-                defaultValue={ad.href || ""}
-                className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-              />
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-sm font-black">Tema</label>
-              <select
-                name="theme"
-                defaultValue={ad.theme || "blue"}
-                className="w-full border border-black/20 px-3 py-2 font-bold outline-none focus:border-black"
-              >
-                <option value="tv19">TV19</option>
-<option value="rcc">RCC</option>
-<option value="ssc">Solaris Summer Cup</option>
-<option value="plus">TV19+</option>
-<option value="notice">Offentlig melding</option>
-<option value="dark">Mørk</option>
-                <option value="blue">Blå</option>
-                <option value="red">Rød</option>
-                <option value="dark">Sort</option>
-                <option value="gold">Gull</option>
-              </select>
-            </div>
-
-            <label className="flex items-center gap-2 pt-7 text-sm font-black">
-              <input
-                name="active"
-                type="checkbox"
-                defaultChecked={Boolean(ad.active)}
-              />
-              Aktiv
-            </label>
-          </div>
-
-          <div className="flex gap-3">
-            <button
-              type="submit"
-              className="bg-[rgb(var(--accent))] px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-white hover:bg-black"
-            >
-              Lagre endringer
-            </button>
-
-            <a
-              href="/admin/annonser"
-              className="px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-black/60 hover:text-black"
-            >
-              Avbryt
-            </a>
-          </div>
-        </form>
+</form>
       </div>
     </main>
   );

@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/auth/require-admin";
+import AdEditor from "@/app/components/ad-editor";
 
 
 
@@ -57,119 +58,15 @@ export default async function NewAdPage() {
         </div>
 
         <form action={createAd} className="space-y-5">
-          <div>
-            <label className="mb-1 block text-sm font-black">Tittel</label>
-            <input
-              name="title"
-              required
-              className="w-full border border-black/20 px-3 py-2 text-lg font-bold outline-none focus:border-black"
-              placeholder="Prishandel"
-            />
-          </div>
+  <AdEditor />
 
-          <div className="grid gap-4 md:grid-cols-2">
-  <div>
-    <label className="mb-1 block text-sm font-black">
-      Etikett
-    </label>
-
-    <input
-      name="label"
-      className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-      placeholder="TV19 PARTNER"
-    />
-  </div>
-
-  <div>
-    <label className="mb-1 block text-sm font-black">
-      Sponsor
-    </label>
-
-    <input
-      name="sponsor"
-      className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-      placeholder="Blackwood Breweries"
-    />
-  </div>
-</div>
-
-<div>
-  <label className="mb-1 block text-sm font-black">
-    Logo / bilde URL
-  </label>
-
-  <input
-    name="image_url"
-    className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-    placeholder="/ads/blackwood.png"
-  />
-</div>
-
-          <div>
-            <label className="mb-1 block text-sm font-black">Tekst</label>
-            <textarea
-              name="text"
-              required
-              rows={3}
-              className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-              placeholder="Alt er på tilbud. Også ting du ikke skulle ha."
-            />
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-sm font-black">CTA</label>
-              <input
-                name="cta"
-                className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-                placeholder="Se dagens vurdering"
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block text-sm font-black">Lenke</label>
-              <input
-                name="href"
-                className="w-full border border-black/20 px-3 py-2 outline-none focus:border-black"
-                placeholder="https://turforventning.no"
-              />
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-sm font-black">Tema</label>
-              <select
-                name="theme"
-                defaultValue="blue"
-                className="w-full border border-black/20 px-3 py-2 font-bold outline-none focus:border-black"
-              >
-                <option value="tv19">TV19</option>
-<option value="rcc">RCC</option>
-<option value="ssc">Solaris Summer Cup</option>
-<option value="plus">TV19+</option>
-<option value="notice">Offentlig melding</option>
-<option value="dark">Mørk</option>
-                <option value="blue">Blå</option>
-                <option value="red">Rød</option>
-                <option value="dark">Sort</option>
-                <option value="gold">Gull</option>
-              </select>
-            </div>
-
-            <label className="flex items-center gap-2 pt-7 text-sm font-black">
-              <input name="active" type="checkbox" defaultChecked />
-              Aktiv
-            </label>
-          </div>
-
-          <button
-            type="submit"
-            className="bg-[rgb(var(--accent))] px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-white hover:bg-black"
-          >
-            Lagre annonse
-          </button>
-        </form>
+  <button
+    type="submit"
+    className="bg-[rgb(var(--accent))] px-5 py-3 text-sm font-black uppercase tracking-[0.12em] text-white hover:bg-black"
+  >
+    Lagre annonse
+  </button>
+</form>
       </div>
     </main>
   );
