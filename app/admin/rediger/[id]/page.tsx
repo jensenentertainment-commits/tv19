@@ -52,6 +52,7 @@ const image3 = formData.get("image3") as File;
 const imageUrl2 = (await uploadImage(image2)) || currentImageUrl2 || null;
 const imageUrl3 = (await uploadImage(image3)) || currentImageUrl3 || null;
 const plus_article = formData.get("plus_article") === "on";
+const followedStory = formData.get("followed_story") === "on";
 
 const location = String(formData.get("location") || "").trim();
 
@@ -116,6 +117,7 @@ image_caption: imageCaption || null,
 image_caption_2: imageCaption2,
 image_caption_3: imageCaption3,
       plus_article,
+      followed_story: followedStory,
       published_at: publishedAt,
       updated_at: new Date().toISOString(),
       tags,

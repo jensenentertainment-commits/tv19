@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { supabaseAdmin } from "@/lib/supabase-admin";
-import { generateMatchReport } from "@/lib/rcc/generate-match-report";
-import { generateMatchHeadline } from "@/lib/rcc/generate-match-headline";
+import { generateMatchReport } from "@/lib/rcc/match/generate-match-report";
+import { generateMatchHeadline } from "@/lib/rcc/match/generate-match-headline";
 
 function formatAttendance(value?: number | null) {
   if (!value) return "Ikke oppgitt";

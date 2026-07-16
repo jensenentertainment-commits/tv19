@@ -97,11 +97,14 @@ const rccArticles = published
 
 const latestArticles = otherArticles.slice(0, 8);
 
-const shuffled = [...otherArticles]
-  .filter((article) => article.id !== breakingArticle?.id)
-  .sort(() => Math.random() - 0.5);
-
-const workingArticles = shuffled.slice(0, 3);
+const followedArticles = published
+  .filter(
+    (article) =>
+      article.followed_story === true &&
+      article.id !== breakingArticle?.id &&
+      article.id !== mainArticle?.id
+  )
+  .slice(0, 3);
 
 
 
@@ -153,7 +156,7 @@ const { data: tfbUpdates } = await supabaseAdmin
             </h2>
 
             <Link href={`/a/${mainArticle.slug}`}>
-              <div className="relative aspect-video bg-slate-200 md:h-[420px] md:aspect-auto">
+              <div className="relative aspect-video bg-slate-200 md:h-[360px] md:aspect-auto">
                 {mainArticle.image_url ? (
                   <img
                     src={mainArticle.image_url}
@@ -201,7 +204,7 @@ const { data: tfbUpdates } = await supabaseAdmin
         <Link
           key={article.id}
           href={`/a/${article.slug}`}
-          className="group block border-b border-black/10 bg-[#183A66] p-5 text-white no-underline"
+          className="group flex min-h-[145px] h-full flex-col justify-between border-b border-black/10 bg-[#183A66] p-5 text-white no-underline"
         >
           <div className="mb-2 text-xs font-black uppercase tracking-[0.12em] text-red-300">
             {article.kicker || article.category || "TV19"}
@@ -223,7 +226,7 @@ const { data: tfbUpdates } = await supabaseAdmin
         <Link
           key={article.id}
           href={`/a/${article.slug}`}
-          className="group block border-b border-black/10 bg-[#C62828] p-5 text-white no-underline"
+          className="group flex min-h-[145px] h-full flex-col justify-between border-b border-black/10 bg-[#C62828] p-5 text-white no-underline"
         >
           <div className="mb-2 text-xs font-black uppercase tracking-[0.18em] text-white/75">
             Akkurat nå
@@ -250,7 +253,7 @@ const { data: tfbUpdates } = await supabaseAdmin
           <img
             src={article.image_url}
             alt={article.title}
-            className="aspect-video w-full object-cover object-center sm:h-24 sm:aspect-auto"
+            className="aspect-video w-full object-cover object-center sm:h-28 sm:aspect-auto"
           />
         ) : (
           <div className="aspect-video bg-black/5 sm:h-24 sm:aspect-auto" />
@@ -353,7 +356,7 @@ const { data: tfbUpdates } = await supabaseAdmin
   <div>
   <Link
     href="/tips"
-    className="block w-full bg-[#183A66] px-6 py-4 text-center text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828] md:inline-block md:w-auto"
+    className="block w-full bg-[#183A66] px-6 py-5 text-center text-sm font-black uppercase tracking-[0.14em] text-white no-underline hover:bg-[#C62828] md:inline-block md:w-auto"
   >
     Send tips →
   </Link>
@@ -367,13 +370,14 @@ const { data: tfbUpdates } = await supabaseAdmin
         <div className="mt-10 flex flex-col gap-8 lg:flex-row">
   <div className="min-w-0 flex-1 space-y-8">
             <section className="bg-white p-4">
-    <h2 className="text-3xl font-black md:text-4xl">
-      Det jobbes med{" "}
-      <span className="text-[rgb(var(--brand))]">saken</span>
-    </h2>
+    <div className="mb-4 border-b-4 border-black pb-2">
+  <h2 className="text-3xl font-black md:text-4xl">
+    Redaksjonen følger <span className="text-[rgb(var(--brand))]">utviklingen</span>
+  </h2>
+</div>
 
     <div className="mt-4">
-      {workingArticles.map((article) => (
+      {followedArticles.map((article) => (
         <Link
           key={article.id}
           href={`/a/${article.slug}`}

@@ -2,8 +2,11 @@
 
 import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import { syncScheduledArticles } from "@/lib/sync-scheduled-articles";
 
 export default async function AdminPage() {
+  await syncScheduledArticles();
+
   const { data: articles, error: articlesError } = await supabaseAdmin
     .from("articles")
     .select("*")

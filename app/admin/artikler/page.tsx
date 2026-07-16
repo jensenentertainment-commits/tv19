@@ -2,6 +2,7 @@ import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { requireAdmin } from "@/lib/auth/require-admin";
 import { revalidatePath } from "next/cache";
+import { syncScheduledArticles } from "@/lib/sync-scheduled-articles";
 
 type Props = {
   searchParams?: Promise<{
@@ -43,10 +44,15 @@ const categories = [
   if (error) {
     throw new Error(error.message);
   }
+  revalidatePath("/admin/artikler");
+revalidatePath("/admin");
 }
+
+
 
 export default async function ArticlesPage({ searchParams }: Props) {
   await requireAdmin();
+  await syncScheduledArticles();
 
   const params = await searchParams;
   const q = params?.q?.trim() || "";

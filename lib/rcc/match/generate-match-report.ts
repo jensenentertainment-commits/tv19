@@ -1,5 +1,7 @@
 // lib/rcc/generate-match-report.ts
 
+import type { SimulatedRccMatch } from "../core/simulate-rcc-matches";
+
 function pick<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)];
 }
@@ -31,16 +33,21 @@ export function generateMatchReport(match: any, events: any[]) {
 
   const attendance = formatNumber(match.attendance);
 
-  const comeback =
-    (homeWon && firstGoal?.team?.short_name === match.away?.short_name) ||
-    (awayWon && firstGoal?.team?.short_name === match.home?.short_name);
+ const comeback =
+  (homeWon && firstGoal?.team?.id === match.away?.id) ||
+  (awayWon && firstGoal?.team?.id === match.home?.id);
 
-  const lateWinner =
-    !draw &&
-    lastGoal &&
-    lastGoal.minute >= 85 &&
-    lastGoal.team?.short_name ===
-      (homeWon ? match.home?.short_name : match.away?.short_name);
+ const winningTeamId = homeWon
+  ? match.home?.id
+  : awayWon
+    ? match.away?.id
+    : null;
+
+const lateWinner =
+  !draw &&
+  lastGoal &&
+  lastGoal.minute >= 85 &&
+  lastGoal.team?.id === winningTeamId;
 
   const cleanSheet = homeGoals === 0 || awayGoals === 0;
 
@@ -145,4 +152,45 @@ export function generateMatchReport(match: any, events: any[]) {
   ]);
 
   return `${intro} ${story} ${ending} ${attendanceLine}`;
+  
+}
+export function generateSimulatedMatchReport(
+  match: SimulatedRccMatch
+) {
+  const adaptedMatch = {
+    played: true,
+    home_goals: match.homeGoals,
+    away_goals: match.awayGoals,
+    attendance: match.attendance,
+
+    home: {
+      id: match.homeTeam.id,
+      name: match.homeTeam.name,
+      short_name: match.homeTeam.name,
+      stadium: match.homeTeam.stadium ?? "stadion",
+    },
+
+    away: {
+      id: match.awayTeam.id,
+      name: match.awayTeam.name,
+      short_name: match.awayTeam.name,
+    },
+  };
+
+  const adaptedEvents = match.events.map((event) => ({
+    minute: event.minute,
+
+    player: {
+      id: event.playerId,
+      name: event.playerName,
+    },
+
+    team: {
+      id: event.teamId,
+      name: event.teamName,
+      short_name: event.teamName,
+    },
+  }));
+
+  return generateMatchReport(adaptedMatch, adaptedEvents);
 }

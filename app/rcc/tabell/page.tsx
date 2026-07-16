@@ -1,82 +1,39 @@
 import Link from "next/link";
 import { supabaseAdmin } from "@/lib/supabase-admin";
+import { calculateRccTable } from "@/lib/rcc/core/calculate-rcc-table";
 
-type TeamRow = {
-  id: string;
-  name: string;
-  crest_url?: string | null;
-  played: number;
-  won: number;
-  drawn: number;
-  lost: number;
-  goalsFor: number;
-  goalsAgainst: number;
-  goalDiff: number;
-  points: number;
-};
 
 export default async function RccTablePage() {
- const { data: teams } = await supabaseAdmin
+
+
+const { data: teams, error: teamsError } = await supabaseAdmin
   .from("rcc_teams")
-  .select("*")
+  .select("id, name, crest_url")
   .eq("league_level", "RCC")
   .order("name", { ascending: true });
 
-  const { data: matches } = await supabaseAdmin
+if (teamsError) {
+  throw teamsError;
+}
+
+const { data: matches, error: matchesError } = await supabaseAdmin
   .from("rcc_matches")
-  .select("*")
+  .select(
+    `
+      home_team_id,
+      away_team_id,
+      home_goals,
+      away_goals,
+      played
+    `
+  )
   .eq("season", "2026/27");
 
- const rows: TeamRow[] =
-  teams
-    ?.map((team) => {
-      let played = 0;
-      let won = 0;
-      let drawn = 0;
-      let lost = 0;
-      let goalsFor = 0;
-      let goalsAgainst = 0;
+if (matchesError) {
+  throw matchesError;
+}
 
-      (matches ?? [])
-        .filter((match) => match.played)
-        .forEach((match) => {
-          const isHome = match.home_team_id === team.id;
-          const isAway = match.away_team_id === team.id;
-
-          if (!isHome && !isAway) return;
-
-          const gf = isHome ? match.home_goals ?? 0 : match.away_goals ?? 0;
-          const ga = isHome ? match.away_goals ?? 0 : match.home_goals ?? 0;
-
-          played++;
-          goalsFor += gf;
-          goalsAgainst += ga;
-
-          if (gf > ga) won++;
-          else if (gf === ga) drawn++;
-          else lost++;
-        });
-
-      return {
-        id: team.id,
-        name: team.name,
-        crest_url: team.crest_url,
-        played,
-        won,
-        drawn,
-        lost,
-        goalsFor,
-        goalsAgainst,
-        goalDiff: goalsFor - goalsAgainst,
-        points: won * 3 + drawn,
-      };
-    })
-    .sort((a, b) => {
-      if (b.points !== a.points) return b.points - a.points;
-      if (b.goalDiff !== a.goalDiff) return b.goalDiff - a.goalDiff;
-      if (b.goalsFor !== a.goalsFor) return b.goalsFor - a.goalsFor;
-      return a.name.localeCompare(b.name);
-    }) ?? [];
+const rows = calculateRccTable(teams ?? [], matches ?? []);
 
   return (
     <main className="min-h-screen bg-[rgb(var(--paper))] px-4 py-8">
@@ -136,7 +93,7 @@ export default async function RccTablePage() {
 >
                   <td className="px-3 py-3">
   <div className="font-black text-black/60">
-    {index + 1}
+    {row.position}
   </div>
 </td>
                   <td className="px-3 py-3">
